@@ -4,7 +4,7 @@
 chrome.webNavigation.onCompleted.addListener(async (details) => {
   // try {
   //   // 发起HTTP请求
-  //   const response = await fetch('https://s1.ljcdn.com/dig-log/static/v3/lianjiaUlog.js');
+  //   const response = await fetch('');
   //   if (!response.ok) {
   //     throw new Error(`HTTP error! Status: ${response.status}`);
   //   }
