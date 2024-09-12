@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "跳转复制小工具",
+  "description": "跳转复制小工具",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "alarms",
+    "notifications",
+    "scripting",
+    "webNavigation",
+    "webRequest"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["http://test-cms.a.ke.com/*","https://dig.lianjia.com/check.gif"],
+  "action": {
+    "default_icon": "icon.png",
+    "default_popup": "demo.html"
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+        "matches": [
+          "https://xmen.intra.ke.com/*",
+          "https://cloud.intra.ke.com/console/project/cloud/application/*",
+          "https://monitor-proxy.cloud.ke.com/*",
+          "https://fast.ke.com/*",
+          "https://ones.ke.com/*",
+          "https://monitor-proxy.cloud.ke.com/*",
+          "http://factory.data.ke.com/*",
+          "http://odin.adhoc.ke.com/*",
+          "file:///D:/test/nb.html"
+        ],
+        "js": ["function.js"],
+        "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+     {
+      "resources": ["function.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["demo.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
